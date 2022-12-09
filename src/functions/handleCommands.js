@@ -3,8 +3,8 @@ const { Routes } = require('discord-api-types/v9');
 const fs = require('fs');
 require('dotenv').config();
 
-const clientId = '1050555388250030192'; 
-const guildId = '1024685312875708436'; 
+const clientId = process.env.CLIENT_CHANNEL_ID; 
+const guildId = process.env.GUILD_ID; 
 
 
 const rest = new REST({
