@@ -1,17 +1,52 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { ActionRowBuilder, ButtonBuilder, EmbedBuilder, PermissionsBitField, ButtonStyle } = require('discord.js');
 
-module.exports ={
+
+module.exports = {
     data: new SlashCommandBuilder()
-    .setName('verify')
-    .setDescription("get verified in the discord server"),
-    async execute (interaction, client){
+    .setName('verify2')
+    .setDescription("This is verification message"),
 
-        const role = interaction.guild.roles.cache.find(r => r.name === 'Verified')
-        console.log(role)
-        const member = interaction.member;
+    async execute (interaction, client){
+        if ( !interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return await interaction.reply({ content: " You must be an administrator to create verification message", ephemeral: true})
+    
+    const button = new ActionRowBuilder()
+    .addComponents(
+        new ButtonBuilder()
+        .setCustomId('button')
+        .setEmoji('✅')
+        .setLabel('Verify')
+        .setStyle(ButtonStyle.Success),
+    )
+
+
+    const embed = new EmbedBuilder()
+    .setColor("Blue")
+    .setTitle("Server Verification")
+    .setDescription("Click the button below to verify yourself within the server")
+
+    await interaction.reply({ embeds: [ embed], components: [ button ]});
+
+    const collector = await interaction.channel.createMessageComponentCollector();
+
+    collector.on('collect', async i =>{
+        await i.update({embeds: [embed], components: [button]});
+
+        const role = interaction.guild.roles.cache.find( r => r.name === "Verified");
+
+        const member = i.member;
+        console.log("**************" ,member)
+        console.log("**************" ,member.roles)
+        
 
         member.roles.add(role);
 
-        await interaction.reply({content: "You are now verified within the server", ephemeral: true})
+        i.user.send(`You are now verified within ${i.guild.name}`).catch(err =>{
+            return;
+        })
+    })
+
+
+
     }
 }

@@ -24,10 +24,11 @@ module.exports = {
         .setTitle('Community Commands')
         .addFields({ name: '/help', value: 'Do /help for the command list & support'})
         .addFields({ name: '/test', value: 'Check is bot is working'})
-        .addFields({ name: '/steal', value: 'Steal an emoji'})
-        .addFields({ name: '/thunderbot', value: 'Speak with the AI chat bot'})
-        .addFields({ name: '/image', value: 'Generate an AI iamge'})
-
+        .addFields({ name: '/steal', value: 'Steal an emoji from another server'})
+        .addFields({ name: '/alphabot', value: 'Speak with Alphabot'})
+        .addFields({ name: '/image', value: 'Generate an AI image'})
+        .addFields({ name: '/8ball', value: 'Classic 8ball command'})
+        .addFields({ name: '/enka', value: 'Enter Genshin UID to recieve enka network url'})
 
     
         .setTimestamp()
@@ -42,6 +43,24 @@ module.exports = {
         .addFields({ name: '/reactrole', value: 'This send s a reaction role message'})
         .addFields({ name: '/verify', value: 'This verifies a member'})
         .addFields({ name: '/ticket', value: 'Creates a ticket'})
+        .addFields({ name: '/addrole', value: 'Add a role to a specific member'})
+        .addFields({ name: '/ban', value: 'Ban a member'})
+        .addFields({ name: '/unban', value: 'Unban a member'})
+        .addFields({ name: '/timeout', value: 'Timeout a member'})
+        .addFields({ name: '/untimeout', value: 'Untimeout a member'})
+        .addFields({ name: '/kick', value: 'Kick a member'})
+        .addFields({ name: '/setwelchannel', value: 'Sets the welcome channel to specified channel'})
+        .addFields({ name: '/removewelchannel', value: 'Removes the welcome channel'})
+        .addFields({ name: '/mute', value: 'Mutes a specified member'})
+
+
+
+
+
+
+
+
+
 
 
         .setTimestamp()

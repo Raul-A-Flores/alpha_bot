@@ -17,7 +17,7 @@ const configuration = new Configuration({
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('alphabot')
-    .setDescription('Talk to the AI BOT')
+    .setDescription('Speak with Alphabot')
     .addStringOption(option => option.setName(`prompt`).setDescription(`Enter a prompt`).setRequired(true)),
 
 
@@ -25,7 +25,8 @@ module.exports = {
 
         const prompt2 = interaction.options.getString(`prompt`);
 
-        let prompt =`Thunderbot is a chatbot that is helpful to whoever is asking. Replies in first person. Do not include Bot:  `
+        let prompt =`Alphabot is a chatbot that is helpful to whoever is asking. Replies in first person. Do not include:
+        Bot:  `
         prompt += `You: ${prompt2}\n`;
        (async () => {
              const gptResponse = await openai.createCompletion({
