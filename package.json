@@ -23,6 +23,7 @@
     "ffmpeg-static": "^5.1.0",
     "needle": "^3.2.0",
     "node-twitch": "^0.5.0",
+    "nodemon": "^2.0.20",
     "openai": "^3.1.0",
     "qs": "^6.11.0",
     "quick.db": "^9.0.6",

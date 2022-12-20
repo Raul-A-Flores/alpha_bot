@@ -4,7 +4,7 @@ const { ActionRowBuilder, ButtonBuilder, EmbedBuilder, PermissionsBitField, Butt
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('verify2')
+    .setName('verify')
     .setDescription("This is verification message"),
 
     async execute (interaction, client){
@@ -43,6 +43,8 @@ module.exports = {
 
         i.user.send(`You are now verified within ${i.guild.name}`).catch(err =>{
             return;
+        }).err(err=>{
+            console.log(err)
         })
     })
 
