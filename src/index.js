@@ -2,10 +2,13 @@ const { Client, GatewayIntentBits, EmbedBuilder, PermissionsBitField, Permission
 const fs = require('fs');
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildPresences] }); 
 const { REST } = require("@discordjs/rest");
-const gpt3 = require('./GPT3/gpt3text.js')
+const gpt3 = require('./GPT3/gpt3text.js');
+const mongoose = require('mongoose');
+const mongodbURL = process.env.MONGO_DB_URL
+
+
 
 require('dotenv').config();
-
 
 
 
